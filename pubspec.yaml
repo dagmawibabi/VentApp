@@ -61,7 +61,36 @@ flutter:
     - assets/images/11.png
     - assets/images/12.png
     - assets/images/reddit.png
+    - assets/images/loading.png
     - assets/images/loading1.png
+    - assets/images/loading2.png
+    - assets/images/error1.png
+    - assets/images/error2.png
+    - assets/images/error3.png
+    - assets/images/error4.png
+    - assets/images/error5.png
+    - assets/images/error6.png
+    - assets/images/error7.png
+    - assets/images/error8.png
+    - assets/images/error9.png
+    - assets/images/error10.png
+    - assets/images/error11.png
+    - assets/images/avatars/A.png
+    - assets/images/avatars/B.png
+    - assets/images/avatars/C.png
+    - assets/images/avatars/D.png
+    - assets/images/avatars/E.png
+    - assets/images/avatars/F.png
+    - assets/images/avatars/G.png
+    - assets/images/avatars/H.png
+    - assets/images/avatars/I.png
+    - assets/images/avatars/J.png
+    - assets/images/avatars/K.png
+    - assets/images/avatars/L.png
+    - assets/images/avatars/M.png
+    - assets/images/avatars/N.png
+    - assets/images/avatars/O.png
+    - assets/images/avatars/P.png
     
   #   - images/a_dot_ham.jpeg
 

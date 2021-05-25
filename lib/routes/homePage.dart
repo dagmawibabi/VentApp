@@ -9,6 +9,8 @@ void main() {
   runApp(HomePage());
 }
 
+Random random = Random();
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -19,20 +21,24 @@ class _HomePageState extends State<HomePage> {
   List fetchRedditConfessions = [];
   String fetchState = "Connecting...";
   void getRedditConfessions() async {
-    print("here1");
-    FetchReddit fetchReddit = FetchReddit();
-    await fetchReddit.getRedditConfessions();
-    fetchRedditConfessions = fetchReddit.confessions;
-    print("here2");
-    fetchState = "Connected!";
-    setState(() {});
-
-    //TIME OUT]
-    Future.delayed(Duration(milliseconds: 800), () {
-      fetchState = "Confess";
-      fetchingContent = false;
+    try {
+      FetchReddit fetchReddit = FetchReddit();
+      await fetchReddit.getRedditConfessions();
+      fetchRedditConfessions = fetchReddit.confessions;
+      fetchState = "Connected!";
       setState(() {});
-    });
+      //TIME OUT
+      Future.delayed(Duration(milliseconds: 800), () {
+        fetchState = "Confess";
+        fetchingContent = false;
+        setState(() {});
+      });
+    } catch (e) {
+      fetchState = "Not-Connected!";
+      //curPage = 100;
+      getRedditConfessions();
+      setState(() {});
+    }
   }
 
   @override
@@ -66,7 +72,8 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       // Body
-      body: curPage == 0
+      body: pagesChoice(),
+      /*curPage == 0
           ? FeedPage(
               fetchingContent: fetchingContent,
               fetchRedditConfessions: fetchRedditConfessions,
@@ -74,7 +81,7 @@ class _HomePageState extends State<HomePage> {
           : ChatPage(
               fetchingContent: fetchingContent,
               fetchRedditConfessions: fetchRedditConfessions,
-            ),
+            ),*/
       // Bottom Nav Bar
       bottomNavigationBar: BottomAppBar(
         elevation: 0.0,
@@ -131,5 +138,30 @@ class _HomePageState extends State<HomePage> {
         },
       ),
     );
+  }
+
+  dynamic pagesChoice() {
+    if (curPage == 0) {
+      return FeedPage(
+        fetchingContent: fetchingContent,
+        fetchRedditConfessions: fetchRedditConfessions,
+      );
+    } else if (curPage == 1) {
+      return ChatPage(
+        fetchingContent: fetchingContent,
+        fetchRedditConfessions: fetchRedditConfessions,
+      );
+    } else {
+      return Center(
+        child: Container(
+          height: 230, //120.0,
+          child: FittedBox(
+            fit: BoxFit.cover,
+            child: Image.asset(
+                "assets/images/error" + random.nextInt(11).toString() + ".png"),
+          ),
+        ),
+      );
+    }
   }
 }

@@ -47,7 +47,8 @@ class _VentAppState extends State<VentApp> {
           backgroundColor: Color(0xff222831),
           foregroundColor: Colors.white,
         ),
-        scaffoldBackgroundColor: Colors.blueGrey, //Color(0xff79a3b1),
+        scaffoldBackgroundColor:
+            Colors.grey[200], //Colors.blueGrey, //Color(0xff79a3b1),
         textTheme: TextTheme(
           bodyText2: TextStyle(
             color: Colors.black,

@@ -21,9 +21,9 @@ class FeedPage extends StatefulWidget {
 }
 
 Random random = new Random();
+bool isLoved = false;
 
 class _FeedPageState extends State<FeedPage> {
-  bool isLoved = false;
   int randomNumber1 = random.nextInt(9);
   int randomNumber2 = random.nextInt(9);
   int randomNumber3 = random.nextInt(9);
@@ -40,9 +40,32 @@ class _FeedPageState extends State<FeedPage> {
     "Welcome.png",
     "Loading1.png",
   ];
+  List avatars = [
+    "A.png",
+    "B.png",
+    "C.png",
+    "D.png",
+    "E.png",
+    "F.png",
+    "G.png",
+    "H.png",
+    "I.png",
+    "J.png",
+    "K.png",
+    "L.png",
+    "M.png",
+    "N.png",
+    "O.png",
+  ];
+  Map users = {};
   @override
   Widget build(BuildContext context) {
+    for (var i = 0; i < widget.fetchRedditConfessions.length; i++) {
+      users[widget.fetchRedditConfessions[i]["author"]] =
+          avatars[random.nextInt(avatars.length)];
+    }
     return widget.fetchingContent
+        // Loading Illustration
         ? Container(
             //color: Colors.white,
             child: Column(
@@ -51,19 +74,14 @@ class _FeedPageState extends State<FeedPage> {
                 Spacer(),
                 Center(
                   child: Container(
-                    width: 200, //120.0,
-                    height: 200, //120.0,
-                    clipBehavior: Clip.hardEdge,
-                    decoration: BoxDecoration(
-                        color: Colors.red,
-                        borderRadius: BorderRadius.circular(300.0)),
+                    width: 230,
+                    height: 230, //120.0,
                     child: FittedBox(
                       fit: BoxFit.cover,
                       child: Image.asset("assets/images/loading1.png"),
                     ),
                   ),
                 ),
-                SizedBox(height: 10.0),
                 Center(
                   child: Container(
                     width: 150.0,
@@ -78,12 +96,13 @@ class _FeedPageState extends State<FeedPage> {
               ],
             ),
           )
+        // Content
         : ListView.builder(
             itemCount: widget.fetchRedditConfessions.length,
             itemBuilder: (context, index) {
               return Column(
                 children: [
-                  index == randomNumber1 ||
+                  /*index == randomNumber1 ||
                           index == randomNumber2 ||
                           index == randomNumber3 ||
                           index == randomNumber4 ||
@@ -120,7 +139,7 @@ class _FeedPageState extends State<FeedPage> {
                             ],
                           ),
                         )
-                      : Container(),
+                      : Container(),*/
                   GestureDetector(
                     onTap: () {
                       Navigator.pushNamed(
@@ -133,11 +152,23 @@ class _FeedPageState extends State<FeedPage> {
                     },
                     child: Hero(
                       tag: widget.fetchRedditConfessions[index]["title"],
-                      child: VentContainer(
-                        username: widget.fetchRedditConfessions[index]
-                            ["author"],
-                        vent: widget.fetchRedditConfessions[index]["title"],
-                        details: "PASS-NULL-EMPTY",
+                      child: Column(
+                        children: [
+                          VentContainer(
+                            avatar: avatars[random.nextInt(avatars.length)],
+                            username: widget.fetchRedditConfessions[index]
+                                ["author"],
+                            vent: widget.fetchRedditConfessions[index]["title"],
+                            details: widget.fetchRedditConfessions[index]
+                                ["selftext"],
+                            users: users,
+                          ),
+                          Divider(
+                            height: 1.0,
+                            color: Colors.grey[600],
+                          ),
+                          //SizedBox(height: 20.0),
+                        ],
                       ),
                     ),
                   ),

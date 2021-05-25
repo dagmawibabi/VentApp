@@ -7,6 +7,9 @@ class PostVentPage extends StatefulWidget {
 
 class _PostVentPageState extends State<PostVentPage> {
   bool isTagged = false;
+  dynamic _diet;
+  TextEditingController ventTitleController = TextEditingController();
+  TextEditingController ventDetailsController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,73 +58,62 @@ class _PostVentPageState extends State<PostVentPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
+            // Title, Details and Tags
             Container(
-              padding: EdgeInsets.only(left: 6.0, right: 6.0),
-              margin: EdgeInsets.all(10.0),
-              decoration: BoxDecoration(
-                color: Colors.grey[400],
-                borderRadius: BorderRadius.circular(10.0),
-              ),
+              //padding: EdgeInsets.only(left: 6.0, right: 6.0),
+              margin: EdgeInsets.all(6.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  /*Text(
-                    "@Dagmawi_Babi",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontFamily: "Abel",
-                      color: Colors.blueGrey[800]?.withOpacity(0.8),
-                    ),
-                  ),*/
+                  // Title
                   Padding(
-                    padding: const EdgeInsets.only(top: 0.0, left: 8.0),
-                    child: TextField(
+                    padding: const EdgeInsets.only(left: 8.0),
+                    child: TextFormField(
+                      minLines: 1,
+                      maxLines: 2,
+                      controller: ventTitleController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: "Title...",
                         hintStyle: TextStyle(
-                          color: Colors.blueGrey[700],
+                          fontSize: 18.0,
                           fontFamily: "PatrickHand",
+                          color: Colors.blueGrey[700],
                         ),
                       ),
                       style: TextStyle(
+                        fontSize: 18.0,
+                        fontFamily: "PatrickHand",
                         color: Colors.blueGrey[700],
                       ),
                     ),
                   ),
-                  Divider(
-                    color: Colors.grey[600],
-                    thickness: 1.0,
-                  ),
+                  Divider(color: Colors.grey[400], thickness: 1.0),
+                  // Vent Details
                   Container(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 0.0, horizontal: 10.0),
-                    height: 150.0,
-                    /*decoration: BoxDecoration(
-                      border: Border.all(
-                        color: Colors.blueGrey[500]!,
-                      ),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),*/
-                    child: TextField(
+                    padding: EdgeInsets.symmetric(horizontal: 10.0),
+                    height: 300.0,
+                    child: TextFormField(
+                      minLines: 1,
+                      maxLines: 7,
+                      controller: ventDetailsController,
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: "Let It Out...",
                         hintStyle: TextStyle(
-                          color: Colors.blueGrey[900],
+                          color: Colors.blueGrey[800],
                           fontFamily: "PatrickHand",
                           fontSize: 19.0,
                         ),
                       ),
                       style: TextStyle(
-                        color: Colors.blueGrey[900],
+                        color: Colors.blueGrey[800],
+                        fontFamily: "PatrickHand",
+                        fontSize: 19.0,
                       ),
                     ),
                   ),
-                  /*Divider(
-                    color: Colors.grey[600],
-                    thickness: 1.0,
-                  ),*/
+                  Divider(color: Colors.grey[400], thickness: 1.0),
                   /*Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -134,10 +126,46 @@ class _PostVentPageState extends State<PostVentPage> {
                       ),
                     ],
                   ),*/
+                  Container(
+                    color: Colors.blueGrey,
+                    /*width: 120.0,
+                    height: 40.0,*/
+                    child: DropdownButtonFormField(
+                      items: ["A", "B", "C"].map((e) {
+                        return DropdownMenuItem(
+                          value: e,
+                          child: Text(e),
+                        );
+                      }).toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          _diet = value;
+                        });
+                      },
+                      value: _diet,
+                      icon: Icon(
+                        Icons.keyboard_arrow_down_rounded,
+                        color: Colors.black,
+                      ),
+                      iconSize: 12.0,
+                      elevation: 8,
+                      isDense: false,
+                      style: TextStyle(color: Colors.black),
+                      isExpanded: true,
+                      decoration: InputDecoration(
+                        labelText: "Tag",
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
+                      ),
+                      dropdownColor: Colors.red,
+                    ),
+                  ),
                 ],
               ),
             ),
-            Container(
+            // Tags
+            /*Container(
               padding: EdgeInsets.all(8.0),
               margin: EdgeInsets.symmetric(vertical: 0.0, horizontal: 10.0),
               decoration: BoxDecoration(
@@ -224,7 +252,7 @@ class _PostVentPageState extends State<PostVentPage> {
                   ),
                 ],
               ),
-            ),
+            ), */
           ],
         ),
       ),
