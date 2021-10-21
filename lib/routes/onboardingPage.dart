@@ -3,10 +3,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
-void main() {
-  runApp(OnBoardingPage());
-}
-
 class OnBoardingPage extends StatefulWidget {
   @override
   _OnBoardingPageState createState() => _OnBoardingPageState();
@@ -35,7 +31,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             ),
             onPressed: () {
               onboardingPageController.animateToPage(
-                skipped ? 0 : 5,
+                skipped ? 0 : 6,
                 duration: Duration(milliseconds: 1200),
                 curve: Curves.linear,
               );
@@ -60,7 +56,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   padding: EdgeInsets.only(right: 30.0),
                   width: double.infinity,
                   height: 400.0,
-                  child: Image.asset("assets/images/Welcome.png"),
+                  child: Image.asset("assets/images/onboarding/Welcome.png"),
                 ),
                 // Title and Body Text
                 Container(
@@ -152,7 +148,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 Container(
                   width: double.infinity,
                   height: 400.0,
-                  child: Image.asset("assets/images/Anonymous.png"),
+                  child: Image.asset("assets/images/onboarding/Anonymous.png"),
                 ),
                 // Title and Body Text
                 Container(
@@ -243,7 +239,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 Container(
                   width: double.infinity,
                   height: 400.0,
-                  child: Image.asset("assets/images/Secure.png"),
+                  child: Image.asset("assets/images/onboarding/Secure.png"),
                 ),
                 // Title and Body Text
                 Container(
@@ -334,7 +330,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 Container(
                   width: double.infinity,
                   height: 400.0,
-                  child: Image.asset("assets/images/Community.png"),
+                  child: Image.asset("assets/images/onboarding/Community.png"),
                 ),
                 // Title and Body Text
                 Container(
@@ -418,6 +414,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           ),
           // Page 5 - Alert Community
           Container(
+            height: double.infinity,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -425,7 +422,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 Container(
                   width: double.infinity,
                   height: 400.0,
-                  child: Image.asset("assets/images/Free.png"),
+                  child: Image.asset(
+                      "assets/images/onboarding/AlertCommunity.png"),
                 ),
                 // Title and Body Text
                 Container(
@@ -456,7 +454,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   ),
                 ),
                 //Spacer(),
-                SizedBox(height: 50.0),
+                SizedBox(height: 25.0),
                 // Next Button
                 GestureDetector(
                   onTap: () {
@@ -516,7 +514,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 Container(
                   width: double.infinity,
                   height: 400.0,
-                  child: Image.asset("assets/images/Free.png"),
+                  child: Image.asset("assets/images/onboarding/Free.png"),
                 ),
                 // Title and Body Text
                 Container(
@@ -578,7 +576,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                               ),
                               onPressed: () {
                                 onboardingPageController.animateToPage(
-                                  5,
+                                  6,
                                   duration: Duration(milliseconds: 500),
                                   curve: Curves.linear,
                                 );
@@ -607,7 +605,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 Container(
                   width: double.infinity,
                   height: 400.0,
-                  child: Image.asset("assets/images/LetItOut.png"),
+                  child: Image.asset("assets/images/onboarding/LetItOut.png"),
                 ),
                 // Title and Body Text
                 Container(
@@ -664,8 +662,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                                 ), //grey[100]),
                               ),
                               onPressed: () {
-                                Navigator.pushReplacementNamed(
-                                    context, "homePage");
+                                Navigator.pushNamed(context, "signUpPage");
                               },
                             ),
                           ],

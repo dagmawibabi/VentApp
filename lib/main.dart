@@ -6,6 +6,7 @@ import 'package:ventapp/routes/inboxPage.dart';
 import 'package:ventapp/routes/loadingPage.dart';
 import 'package:ventapp/routes/onboardingPage.dart';
 import 'package:ventapp/routes/postVentPage.dart';
+import 'package:ventapp/routes/signUpPage.dart';
 import 'package:ventapp/routes/viewVents.dart';
 
 void main() {
@@ -30,24 +31,29 @@ class _VentAppState extends State<VentApp> {
         ),
         accentColor: Colors.grey[300],
         brightness: Brightness.dark,
-        appBarTheme: AppBarTheme(
-          backgroundColor: Color(0xff222831),
-        ),
+        /*appBarTheme: AppBarTheme(
+          foregroundColor: Colors.grey,
+          backgroundColor: Colors.grey[200], //Color(0xff222831),
+        ),*/
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: Color(0xff222831),
+          backgroundColor: Colors.grey[300], //Color(0xff222831),
           selectedIconTheme: IconThemeData(
-            color: Colors.white,
+            color: Color(0xff222831), //Colors.white,
           ),
           selectedLabelStyle: TextStyle(
-            color: Colors.white,
+            color: Color(0xff222831), //Colors.white,
           ),
-          selectedItemColor: Colors.white,
+          selectedItemColor: Color(0xff222831), //Colors.white,
+          unselectedLabelStyle: TextStyle(
+            color: Colors.grey[400],
+          ),
         ),
         floatingActionButtonTheme: FloatingActionButtonThemeData(
           backgroundColor: Color(0xff222831),
           foregroundColor: Colors.white,
         ),
-        scaffoldBackgroundColor: Colors.blueGrey, //Color(0xff79a3b1),
+        scaffoldBackgroundColor:
+            Colors.grey[200], //Colors.blueGrey, //Color(0xff79a3b1),
         textTheme: TextTheme(
           bodyText2: TextStyle(
             color: Colors.black,
@@ -75,6 +81,7 @@ class _VentAppState extends State<VentApp> {
         "viewVents": (context) => ViewVents(),
         "inboxPage": (context) => InboxPage(),
         "postVentPage": (context) => PostVentPage(),
+        "signUpPage": (context) => SignUpPage(),
       },
     );
   }

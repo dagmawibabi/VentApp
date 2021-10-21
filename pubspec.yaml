@@ -52,16 +52,44 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/Anonymous.png
-    - assets/images/Community.png
-    - assets/images/Free.png
-    - assets/images/LetItOut.png
-    - assets/images/Secure.png
-    - assets/images/Welcome.png
-    - assets/images/11.png
-    - assets/images/12.png
+    - assets/images/onboarding/Welcome.png
+    - assets/images/onboarding/Anonymous.png
+    - assets/images/onboarding/Secure.png
+    - assets/images/onboarding/Community.png
+    - assets/images/onboarding/AlertCommunity.png
+    - assets/images/onboarding/AlertCommunity2.png
+    - assets/images/onboarding/Free.png
+    - assets/images/onboarding/LetItOut.png
     - assets/images/reddit.png
-    - assets/images/loading1.png
+    - assets/images/feedback/loading/loading1.png
+    - assets/images/feedback/loading/loading2.png
+    - assets/images/feedback/loading/loading3.png
+    - assets/images/feedback/error/error1.png
+    - assets/images/feedback/error/error3.png
+    - assets/images/feedback/error/error4.png
+    - assets/images/feedback/error/error5.png
+    - assets/images/feedback/error/error6.png
+    - assets/images/feedback/error/error8.png
+    - assets/images/feedback/error/error9.png
+    - assets/images/feedback/error/error10.png
+    - assets/images/feedback/error/error11.png
+    - assets/images/avatars/A.png
+    - assets/images/avatars/B.png
+    - assets/images/avatars/C.png
+    - assets/images/avatars/D.png
+    - assets/images/avatars/E.png
+    - assets/images/avatars/F.png
+    - assets/images/avatars/G.png
+    - assets/images/avatars/H.png
+    - assets/images/avatars/I.png
+    - assets/images/avatars/J.png
+    - assets/images/avatars/K.png
+    - assets/images/avatars/L.png
+    - assets/images/avatars/M.png
+    - assets/images/avatars/N.png
+    - assets/images/avatars/O.png
+    - assets/images/avatars/P.png
+    - assets/images/signupLogin/signUp1.png
     
   #   - images/a_dot_ham.jpeg
 
